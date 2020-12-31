@@ -1,3 +1,3 @@
 # SmootiTools
 
-Some useful modules I made :)
+Some useful modules :)
