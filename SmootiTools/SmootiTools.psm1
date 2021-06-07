@@ -55,7 +55,7 @@ Function Get-OSInfo {
                     "SerialNumber"   = $BIOS.SerialNumber
                 }
                 $obj = New-Object -TypeName PSObject -Property $props
-                $obj.psobject.typenames.insert(0, "MyTools.OSInfo")
+                $obj.psobject.typenames.insert(0, "SmootiTools.OSInfo")
                 Write-Output $obj
             }
             Catch {
@@ -152,7 +152,7 @@ function Get-DiskInfo {
                 }
                 
                 $obj = New-Object -TypeName PSObject -Propert $props
-                $obj.psobject.typenames.insert(0, "MyTools.DiskInfo")
+                $obj.psobject.typenames.insert(0, "SmootiTools.DiskInfo")
                 Write-Output $obj
             }
             Catch {
