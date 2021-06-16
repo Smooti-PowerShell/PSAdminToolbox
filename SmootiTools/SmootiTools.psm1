@@ -342,6 +342,7 @@ Function Get-InstalledSoftware {
             Else {
                 $Publisher = ""
             }
+
             if($Properties.UninstallString) {
                 $Uninstall_String = ($Properties.UninstallString.Trim())
             }
@@ -392,6 +393,7 @@ Function Get-InstalledSoftware {
             Catch {
                 $Publisher = ""
             }
+
             Try {
                 $Uninstall_String = (Get-ItemPropertyValue $key -Name UninstallString).Trim()
             }
@@ -419,6 +421,7 @@ Function Get-InstalledSoftware {
             Catch {
                 $ParentKeyName = ""
             }
+
         }
 
         If ($DisplayName -and $SystemComponent -ne 1 -and (-Not($ParentKeyName))) {
@@ -429,8 +432,10 @@ Function Get-InstalledSoftware {
                 InstallLocation = $InstallLocation
                 UninstallString = $Uninstall_String
             }
+
             $SoftwareList.Add($NewObj)
         }
     }
+    
     Return $SoftwareList | Select-Object * -Unique | Sort-Object DisplayName
 }
