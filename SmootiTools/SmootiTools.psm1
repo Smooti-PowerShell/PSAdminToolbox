@@ -304,6 +304,13 @@ function Get-ComputerVolumeInfo {
 }
 
 Function Get-InstalledSoftware {
+    <#
+        .Synopsis
+            Gets installed software on system and lists multiple property attributes.          
+        .EXAMPLE
+            Get-InstalledSoftware
+    #>
+    
     $SoftwareList = New-Object System.Collections.Generic.List[System.Object]
     $OSArch = (Get-CimInstance Win32_OperatingSystem).OSArchitecture
     Switch ($OSArch) {
