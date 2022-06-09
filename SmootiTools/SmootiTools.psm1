@@ -145,7 +145,7 @@ function Get-DiskInfo {
                 Where-Object { $_.FreeSpace / $_.Size * 100 -lt $FreeSpace }
                 $props = @{
                     "ComputerName" = $c;
-                    "DeviceID"     = $disks.DeviceID;
+                    "Drive"     = $disks.DeviceID;
                     "FreeSpace"    = ($disks.FreeSpace / 1GB -as [int]);
                     "Size"         = ($disks.Size / 1GB -as [int]);
                     "FreePercent"  = "$($disks.FreeSpace / $disks.Size * 100 -as [int])%"
