@@ -426,7 +426,7 @@ function Get-GraphicsCardInfo {
 				foreach ($graphicsCard in $graphicsCards) {
 					$props = @{
 						"ComputerName"   = $c;
-						"GraphicsManufacturer"      = $graphicsCard.AdapterCompatibility;
+						"GraphicsCardAdapter"      = $graphicsCard.AdapterCompatibility;
 						"GraphicsCardName"        = $graphicsCard.Name
 					}
 					$obj = New-Object -TypeName PSObject -Property $props
