@@ -44,8 +44,10 @@ Function Get-OSInfo {
 				$OS = Get-WMIObject Win32_OperatingSystem -ComputerName $c -ErrorAction Stop
 				$CS = Get-WMIObject Win32_ComputerSystem -ComputerName $c -ErrorAction Stop
 				$BIOS = Get-WMIObject Win32_BIOS -ComputerName $c -ErrorAction Stop
+				$displayVersion = Get-ItemPropertyValue "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion" -Name DisplayVersion
 				$props = @{
 					"Computername"   = $c;
+					"DisplayVersion" = $displayVersion;
 					"OSVersion"      = $OS.Version;
 					"SPVersion"      = $OS.ServicePackMajorVersion;
 					"OSBuild"        = $OS.BuildNumber;

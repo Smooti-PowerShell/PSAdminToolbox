@@ -21,6 +21,10 @@
                         <Label>Manufacturer</Label>
                         <Width>15</Width>
                     </TableColumnHeader>
+					<TableColumnHeader>
+                        <Label>DisplayVersion</Label>
+                        <Width>15</Width>
+                    </TableColumnHeader>
                     <TableColumnHeader>
                         <Label>OSBuild</Label>
                         <Width>15</Width>
@@ -54,6 +58,9 @@
                             <TableColumnItem>
                                 <PropertyName>Manufacturer</PropertyName>
                             </TableColumnItem>
+							<TableColumnItem>
+                                <PropertyName>DisplayVersion</PropertyName>
+                            </TableColumnItem>
                             <TableColumnItem>
                                 <Propertyname>OSBuild</Propertyname>
                             </TableColumnItem>
@@ -71,7 +78,7 @@
                             </TableColumnItem>
                         </TableColumnItems>
                     </TableRowEntry>
-                 </TableRowEntries>
+                </TableRowEntries>
             </TableControl>
         </View>
 
