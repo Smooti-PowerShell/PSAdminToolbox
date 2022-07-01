@@ -353,13 +353,13 @@ function Get-ProcessorInfo {
 				$processors = (Get-WmiObject -Class Win32_Processor -ComputerName $c -ErrorAction Stop)
 				foreach ($processor in $processors) {
 					$props = @{
-						"ComputerName"          = $c;
-						"Manufacturer" = $processor.Manufacturer;
-						"Name"         = $processor.Name;
-						"Cores"        = $processor.NumberOfCores;
+						"ComputerName"      = $c;
+						"Manufacturer"      = $processor.Manufacturer;
+						"Name"              = $processor.Name;
+						"Cores"             = $processor.NumberOfCores;
 						# "Threads"      = $processor.ThreadCount;
 						# "ThreadsPerProcessor"   = $processor.ThreadCount / $processor.NumberOfCores;
-						"LogicalProcessors"     = $processor.NumberOfLogicalProcessors
+						"LogicalProcessors" = $processor.NumberOfLogicalProcessors
 					}
 
 					$obj = New-Object -TypeName PSObject -Property $props
@@ -425,10 +425,10 @@ function Get-GraphicsCardInfo {
 				$graphicsCards = (Get-WmiObject -Class win32_VideoController -ComputerName $c -ErrorAction Stop)
 				foreach ($graphicsCard in $graphicsCards) {
 					$props = @{
-						"ComputerName"        = $c;
+						"ComputerName" = $c;
 						"Manufacturer" = $graphicsCard.AdapterCompatibility;
-						"Name"    = $graphicsCard.Name;
-						"VRAM"	=	"$($graphicsCard.AdapterRAM / 1GB -as [int])GB"	# ! This WMI query returns an inaccurate value
+						"Name"         = $graphicsCard.Name;
+						"VRAM"         =	"$($graphicsCard.AdapterRAM / 1GB -as [int])GB"	# ! This WMI query returns an inaccurate value
 					}
 					$obj = New-Object -TypeName PSObject -Property $props
 					$obj.psobject.typenames.insert(0, "SmootiTools.GraphicsCardInfo")
@@ -496,7 +496,7 @@ function Get-PhysicalMemoryInfo {
 					# TODO: Counter is setup to count number of RAM slots currently being utilized
 					$i = $i + 1
 					$props = @{
-						"ComputerName"               = $c;
+						"ComputerName" = $c;
 						"Manufacturer" = $physicalMemory.Manufacturer;
 						"Capacity"     = "$($physicalMemory.Capacity / 1GB -as [int])GB"
 						"Speed"        = "$($physicalMemory.ConfiguredClockSpeed)MHz";
