@@ -428,7 +428,7 @@ function Get-GraphicsCardInfo {
 						"ComputerName"        = $c;
 						"Manufacturer" = $graphicsCard.AdapterCompatibility;
 						"Name"    = $graphicsCard.Name;
-						"VRAM"	=	"$($graphicsCard.AdapterRAM / 1GB -as [int])GB"
+						"VRAM"	=	"$($graphicsCard.AdapterRAM / 1GB -as [int])GB"	# ! This WMI query returns an inaccurate value
 					}
 					$obj = New-Object -TypeName PSObject -Property $props
 					$obj.psobject.typenames.insert(0, "SmootiTools.GraphicsCardInfo")
