@@ -496,7 +496,7 @@ function Get-PhysicalMemoryInfo {
 					$i = $i + 1
 					$props = @{
 						"ComputerName"           = $c;
-						"PhysicalMemoryCapacity" = "$($physicalMemory.Capacity / 1GB -as [int]) GB"
+						"PhysicalMemoryCapacity" = "$($physicalMemory.Capacity / 1GB -as [int])GB"
 						"PhysicalMemorySpeed"    = $physicalMemory.ConfiguredClockSpeed;
 						"PhysicalMemoryLocation" = $physicalMemory.DeviceLocator
 					}
