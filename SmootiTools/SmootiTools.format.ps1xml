@@ -191,10 +191,10 @@
                                 <PropertyName>Manufacturer</PropertyName>
                             </ListItem>
                             <ListItem>
-                                <PropertyName>MemoryCapacity</PropertyName>
+                                <PropertyName>Capacity</PropertyName>
                             </ListItem>
                             <ListItem>
-                                <PropertyName>MemorySpeed</PropertyName>
+                                <PropertyName>Speed</PropertyName>
                             </ListItem>
                             <ListItem>
                                 <PropertyName>Location</PropertyName>
