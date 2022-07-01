@@ -354,10 +354,10 @@ function Get-ProcessorInfo {
 				foreach ($processor in $processors) {
 					$props = @{
 						"ComputerName"          = $c;
-						"ProcessorManufacturer" = $processor.Manufacturer;
-						"ProcessorName"         = $processor.Name;
-						"ProcessorCores"        = $processor.NumberOfCores;
-						"ProcessorThreads"      = $processor.ThreadCount;
+						"Manufacturer" = $processor.Manufacturer;
+						"Name"         = $processor.Name;
+						"Cores"        = $processor.NumberOfCores;
+						"Threads"      = $processor.ThreadCount;
 						"ThreadsPerProcessor"   = $processor.ThreadCount / $processor.NumberOfCores;
 						"LogicalProcessors"     = $processor.NumberOfLogicalProcessors
 					}
@@ -426,8 +426,9 @@ function Get-GraphicsCardInfo {
 				foreach ($graphicsCard in $graphicsCards) {
 					$props = @{
 						"ComputerName"        = $c;
-						"GraphicsCardAdapter" = $graphicsCard.AdapterCompatibility;
-						"GraphicsCardName"    = $graphicsCard.Name
+						"Manufacturer" = $graphicsCard.AdapterCompatibility;
+						"Name"    = $graphicsCard.Name;
+						"VRAM"	=	"$($graphicsCard.AdapterRAM / 1GB -as [int])GB"
 					}
 					$obj = New-Object -TypeName PSObject -Property $props
 					$obj.psobject.typenames.insert(0, "SmootiTools.GraphicsCardInfo")
@@ -496,11 +497,11 @@ function Get-PhysicalMemoryInfo {
 					$i = $i + 1
 					$props = @{
 						"ComputerName"               = $c;
-						"PhysicalMemoryManufacturer" = $physicalMemory.Manufacturer;
-						"PhysicalMemoryCapacity"     = "$($physicalMemory.Capacity / 1GB -as [int])GB"
-						"PhysicalMemorySpeed"        = $physicalMemory.ConfiguredClockSpeed;
-						"PhysicalMemoryLocation"     = $physicalMemory.DeviceLocator;
-						"PhysicalMemorySerialNumber" = $physicalMemory.Serialnumber
+						"Manufacturer" = $physicalMemory.Manufacturer;
+						"Capacity"     = "$($physicalMemory.Capacity / 1GB -as [int])GB"
+						"Speed"        = $physicalMemory.ConfiguredClockSpeed;
+						"Location"     = $physicalMemory.DeviceLocator;
+						"SerialNumber" = $physicalMemory.Serialnumber
 					}
 					$obj = New-Object -TypeName PSObject -Property $props
 					$obj.psobject.typenames.insert(0, "SmootiTools.PhysicalMemoryInfo")

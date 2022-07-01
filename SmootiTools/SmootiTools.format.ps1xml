@@ -125,16 +125,16 @@
                                 <PropertyName>ComputerName</PropertyName>
                             </ListItem>
                             <ListItem>
-                                <PropertyName>ProcessorManufacturer</PropertyName>
+                                <PropertyName>Manufacturer</PropertyName>
                             </ListItem>
                             <ListItem>
-                                <PropertyName>ProcessorName</PropertyName>
+                                <PropertyName>Name</PropertyName>
                             </ListItem>
                             <ListItem>
-                                <PropertyName>ProcessorCores</PropertyName>
+                                <PropertyName>Cores</PropertyName>
                             </ListItem>
                             <ListItem>
-                                <PropertyName>ProcessorThreads</PropertyName>
+                                <PropertyName>Threads</PropertyName>
                             </ListItem>
 							<ListItem>
 								<PropertyName>ThreadsPerProcessor</PropertyName>
@@ -161,10 +161,13 @@
                                 <PropertyName>ComputerName</PropertyName>
                             </ListItem>
                             <ListItem>
-                                <PropertyName>GraphicsCardAdapter</PropertyName>
+                                <PropertyName>Manufacturer</PropertyName>
                             </ListItem>
                             <ListItem>
-                                <PropertyName>GraphicsCardName</PropertyName>
+                                <PropertyName>Name</PropertyName>
+                            </ListItem>
+							<ListItem>
+                                <PropertyName>VRAM</PropertyName>
                             </ListItem>
                         </ListItems>
                     </ListEntry>
@@ -185,19 +188,19 @@
                                 <PropertyName>ComputerName</PropertyName>
                             </ListItem>
                             <ListItem>
-                                <PropertyName>PhysicalMemoryManufacturer</PropertyName>
+                                <PropertyName>Manufacturer</PropertyName>
                             </ListItem>
                             <ListItem>
-                                <PropertyName>PhysicalMemoryCapacity</PropertyName>
+                                <PropertyName>MemoryCapacity</PropertyName>
                             </ListItem>
                             <ListItem>
-                                <PropertyName>PhysicalMemorySpeed</PropertyName>
+                                <PropertyName>MemorySpeed</PropertyName>
                             </ListItem>
                             <ListItem>
-                                <PropertyName>PhysicalMemoryLocation</PropertyName>
+                                <PropertyName>Location</PropertyName>
                             </ListItem>
 							<ListItem>
-								<PropertyName>PhysicalMemorySerialNumber</PropertyName>
+								<PropertyName>SerialNumber</PropertyName>
 							</ListItem>
                         </ListItems>
                     </ListEntry>
