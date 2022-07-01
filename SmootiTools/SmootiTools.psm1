@@ -141,20 +141,21 @@ function Get-DiskInfo {
 	Process {
 		foreach ($c in $ComputerName) {
 			Try {
-				# TODO: Fix "props" only able to take in one object at a time (In case of multiple drives this breaks the function)
 				$disks = (Get-WMIObject -Class win32_LogicalDisk -Filter "DriveType=$($DriveType)" -Computer $c -ErrorAction Stop |
-				Where-Object { $_.FreeSpace / $_.Size * 100 -lt $FreeSpace })[0]
-				$props = @{
-					"ComputerName" = $c;
-					"Drive"        = $disks.DeviceID;
-					"FreeSpace"    = ($disks.FreeSpace / 1GB -as [int]);
-					"Size"         = ($disks.Size / 1GB -as [int]);
-					"FreePercent"  = "$($disks.FreeSpace / $disks.Size * 100 -as [int])%"
-				}
+				Where-Object { $_.FreeSpace / $_.Size * 100 -lt $FreeSpace })
+				foreach ($disk in $disks) {
+					$props = @{
+						"ComputerName" = $c;
+						"Drive"        = $disk.DeviceID;
+						"FreeSpace"    = "$($disk.FreeSpace / 1GB -as [int]) GB";
+						"Size"         = "$($disk.Size / 1GB -as [int]) GB";
+						"FreePercent"  = "$($disk.FreeSpace / $disk.Size * 100 -as [int])%"
+					}
 
-				$obj = New-Object -TypeName PSObject -Propert $props
-				$obj.psobject.typenames.insert(0, "SmootiTools.DiskInfo")
-				Write-Output $obj
+					$obj = New-Object -TypeName PSObject -Propert $props
+					$obj.psobject.typenames.insert(0, "SmootiTools.DiskInfo")
+					Write-Output $obj
+				}
 			}
 			Catch {
 				if ($LogErrors) {
