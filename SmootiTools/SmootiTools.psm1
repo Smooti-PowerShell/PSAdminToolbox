@@ -355,9 +355,10 @@ function Get-ProcessorInfo {
 					$props = @{
 						"ComputerName"   = $c;
 						"ProcessorManufacturer"   = $processor.Manufacturer;
-						"Processor" = $processor.Name;
+						"ProcessorName" = $processor.Name;
 						"ProcessorCores"      = $processor.NumberOfCores;
 						"ProcessorThreads"      = $processor.ThreadCount;
+						"ThreadsPerProcessor" = $processor.ThreadCount / $processor.NumberOfCores;
 						"LogicalProcessors" = $processor.NumberOfLogicalProcessors
 					}
 
@@ -426,7 +427,7 @@ function Get-GraphicsCardInfo {
 					$props = @{
 						"ComputerName"   = $c;
 						"GraphicsManufacturer"      = $graphicsCard.AdapterCompatibility;
-						"GraphicsCard"        = $graphicsCard.Name
+						"GraphicsCardName"        = $graphicsCard.Name
 					}
 					$obj = New-Object -TypeName PSObject -Property $props
 					$obj.psobject.typenames.insert(0, "SmootiTools.GraphicsCardInfo")
@@ -488,8 +489,11 @@ function Get-PhysicalMemoryInfo {
 	process {
 		foreach ($c in $ComputerName) {
 			try {
+				$i = 0
 				$physicalMemorys = (Get-WmiObject win32_physicalmemory -ComputerName $c -ErrorAction Stop)
 				foreach ($physicalMemory in $physicalMemorys) {
+					# TODO: Counter is setup to count number of RAM slots currently being utilized
+					$i = $i + 1
 					$props = @{
 						"ComputerName"   = $c;
 						"PhysicalMemoryCapacity"   = "$($physicalMemory.Capacity / 1GB -as [int]) GB"
