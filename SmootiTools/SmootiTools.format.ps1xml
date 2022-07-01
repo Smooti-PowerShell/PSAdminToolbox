@@ -199,9 +199,6 @@
 							<ListItem>
 								<PropertyName>PhysicalMemorySerialNumber</PropertyName>
 							</ListItem>
-							<ListItem>
-								<PropertyName>LogicalProcessors</PropertyName>
-							</ListItem>
                         </ListItems>
                     </ListEntry>
                 </ListEntries>
