@@ -310,7 +310,7 @@ function Get-ComputerVolumeInfo {
 function Get-ProcessorInfo {
 	<#
         .Synopsis
-            Retrieves operating system information.
+            Retrieves processor information.
         .PARAMETER ComputerName
             DEFAULT: LocalHost
             Name or IP of computer or computers.
@@ -382,7 +382,7 @@ function Get-ProcessorInfo {
 function Get-GraphicsCardInfo {
 	<#
         .Synopsis
-            Retrieves operating system information.
+            Retrieves graphics card information.
         .PARAMETER ComputerName
             DEFAULT: LocalHost
             Name or IP of computer or computers.
@@ -449,7 +449,7 @@ function Get-GraphicsCardInfo {
 function Get-PhysicalMemoryInfo {
 	<#
         .Synopsis
-            Retrieves operating system information.
+            Retrieves physical memory information.
         .PARAMETER ComputerName
             DEFAULT: LocalHost
             Name or IP of computer or computers.
