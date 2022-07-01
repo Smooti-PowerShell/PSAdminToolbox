@@ -141,8 +141,9 @@ function Get-DiskInfo {
 	Process {
 		foreach ($c in $ComputerName) {
 			Try {
-				$disks = Get-WMIObject -Class win32_LogicalDisk -Filter "DriveType=$($DriveType)" -Computer $c -ErrorAction Stop |
-				Where-Object { $_.FreeSpace / $_.Size * 100 -lt $FreeSpace }
+				# TODO: Fix "props" only able to take in one object at a time (In case of multiple drives this breaks the function)
+				$disks = (Get-WMIObject -Class win32_LogicalDisk -Filter "DriveType=$($DriveType)" -Computer $c -ErrorAction Stop |
+				Where-Object { $_.FreeSpace / $_.Size * 100 -lt $FreeSpace })[0]
 				$props = @{
 					"ComputerName" = $c;
 					"Drive"        = $disks.DeviceID;
