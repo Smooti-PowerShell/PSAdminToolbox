@@ -357,8 +357,8 @@ function Get-ProcessorInfo {
 						"Manufacturer" = $processor.Manufacturer;
 						"Name"         = $processor.Name;
 						"Cores"        = $processor.NumberOfCores;
-						"Threads"      = $processor.ThreadCount;
-						"ThreadsPerProcessor"   = $processor.ThreadCount / $processor.NumberOfCores;
+						# "Threads"      = $processor.ThreadCount;
+						# "ThreadsPerProcessor"   = $processor.ThreadCount / $processor.NumberOfCores;
 						"LogicalProcessors"     = $processor.NumberOfLogicalProcessors
 					}
 

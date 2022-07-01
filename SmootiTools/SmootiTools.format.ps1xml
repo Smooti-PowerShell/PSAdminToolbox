@@ -133,12 +133,12 @@
                             <ListItem>
                                 <PropertyName>Cores</PropertyName>
                             </ListItem>
-                            <ListItem>
+                            <!-- <ListItem>
                                 <PropertyName>Threads</PropertyName>
                             </ListItem>
 							<ListItem>
 								<PropertyName>ThreadsPerProcessor</PropertyName>
-							</ListItem>
+							</ListItem> -->
 							<ListItem>
 								<PropertyName>LogicalProcessors</PropertyName>
 							</ListItem>
