@@ -499,7 +499,7 @@ function Get-PhysicalMemoryInfo {
 						"ComputerName"               = $c;
 						"Manufacturer" = $physicalMemory.Manufacturer;
 						"Capacity"     = "$($physicalMemory.Capacity / 1GB -as [int])GB"
-						"Speed"        = $physicalMemory.ConfiguredClockSpeed;
+						"Speed"        = "$($physicalMemory.ConfiguredClockSpeed)MHz";
 						"Location"     = $physicalMemory.DeviceLocator;
 						"SerialNumber" = $physicalMemory.Serialnumber
 					}
