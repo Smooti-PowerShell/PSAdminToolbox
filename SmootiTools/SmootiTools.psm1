@@ -495,10 +495,12 @@ function Get-PhysicalMemoryInfo {
 					# TODO: Counter is setup to count number of RAM slots currently being utilized
 					$i = $i + 1
 					$props = @{
-						"ComputerName"           = $c;
-						"PhysicalMemoryCapacity" = "$($physicalMemory.Capacity / 1GB -as [int])GB"
-						"PhysicalMemorySpeed"    = $physicalMemory.ConfiguredClockSpeed;
-						"PhysicalMemoryLocation" = $physicalMemory.DeviceLocator
+						"ComputerName"               = $c;
+						"PhysicalMemoryManufacturer" = $physicalMemory.Manufacturer;
+						"PhysicalMemoryCapacity"     = "$($physicalMemory.Capacity / 1GB -as [int])GB"
+						"PhysicalMemorySpeed"        = $physicalMemory.ConfiguredClockSpeed;
+						"PhysicalMemoryLocation"     = $physicalMemory.DeviceLocator;
+						"PhysicalMemorySerialNumber" = $physicalMemory.Serialnumber
 					}
 					$obj = New-Object -TypeName PSObject -Property $props
 					$obj.psobject.typenames.insert(0, "SmootiTools.PhysicalMemoryInfo")
