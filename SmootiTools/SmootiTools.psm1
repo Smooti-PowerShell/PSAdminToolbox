@@ -307,6 +307,212 @@ function Get-ComputerVolumeInfo {
 	End {}
 }
 
+function Get-ProcessorInfo {
+	<#
+        .Synopsis
+            Retrieves operating system information.
+        .PARAMETER ComputerName
+            DEFAULT: LocalHost
+            Name or IP of computer or computers.
+        .PARAMETER ErrorLog
+            DEFAULT: C:\Scripts\Get-ProcessorInfo_Error.txt
+            Path to save error log.
+        .PARAMETER LogErrors
+            If specified errors will be logged.
+        .EXAMPLE
+            Get-ProcessorInfo -ComputerName Computer1
+        .EXAMPLE
+            "Computer1","Computer2" | Get-ProcessorInfo
+        .EXAMPLE
+            Get-ProcessorInfo -ComputerName Computer1,Computer2 -LogErrors
+        .EXAMPLE
+            Get-ProcessorInfo -ComputerName Computer1 -LogErrors -ErrorLog C:\Users\<user>\Documents\Get-ProcessorInfo_Error.txt
+    #>
+
+	param (
+		[Parameter (
+			ValueFromPipeline = $True,
+			ValueFromPipelineByPropertyName = $True,
+			HelpMessage = "ComputerName or IP address.")]
+		[Alias("Hostname")]
+		[ValidateCount(0, 5)]
+		[string[]] $ComputerName = $env:COMPUTERNAME,
+
+		[Parameter (HelpMessage = "Default is C:\Scripts\Get-ProcessorInfo_Error.txt")]
+		[string] $ErrorLog = "C:\Scripts\Get-ProcessorInfo_Error.txt",
+
+		[Parameter (HelpMessage = "Enable failed computer logging.")]
+		[switch] $LogErrors
+	)
+
+	Begin {}
+
+	process {
+		foreach ($c in $ComputerName) {
+			try {
+				$processors = (Get-WmiObject -Class Win32_Processor -ComputerName $c -ErrorAction Stop)
+				foreach ($processor in $processors) {
+					$props = @{
+						"ComputerName"   = $c;
+						"ProcessorManufacturer"   = $processor.Manufacturer;
+						"Processor" = $processor.Name;
+						"ProcessorCores"      = $processor.NumberOfCores;
+						"ProcessorThreads"      = $processor.ThreadCount;
+						"LogicalProcessors" = $processor.NumberOfLogicalProcessors
+					}
+
+					$obj = New-Object -TypeName PSObject -Property $props
+					$obj.psobject.typenames.insert(0, "SmootiTools.ProcessorInfo")
+					Write-Output $obj
+				}
+			}
+			Catch {
+				if ($LogErrors) {
+					$c | Out-File $ErrorLog -Append
+				}
+				Write-Warning "$($c) has encountered an error."
+			}
+		}
+	}
+
+	End {}
+}
+
+function Get-GraphicsCardInfo {
+	<#
+        .Synopsis
+            Retrieves operating system information.
+        .PARAMETER ComputerName
+            DEFAULT: LocalHost
+            Name or IP of computer or computers.
+        .PARAMETER ErrorLog
+            DEFAULT: C:\Scripts\Get-GraphicsCardInfo_Error.txt
+            Path to save error log.
+        .PARAMETER LogErrors
+            If specified errors will be logged.
+        .EXAMPLE
+            Get-GraphicsCardInfo -ComputerName Computer1
+        .EXAMPLE
+            "Computer1","Computer2" | Get-GraphicsCardInfo
+        .EXAMPLE
+            Get-GraphicsCardInfo -ComputerName Computer1,Computer2 -LogErrors
+        .EXAMPLE
+            Get-GraphicsCardInfo -ComputerName Computer1 -LogErrors -ErrorLog C:\Users\<user>\Documents\Get-GraphicsCardInfo.txt
+    #>
+
+	param (
+		[Parameter (
+			ValueFromPipeline = $True,
+			ValueFromPipelineByPropertyName = $True,
+			HelpMessage = "ComputerName or IP address.")]
+		[Alias("Hostname")]
+		[ValidateCount(0, 5)]
+		[string[]] $ComputerName = $env:COMPUTERNAME,
+
+		[Parameter (HelpMessage = "Default is C:\Scripts\Get-GraphicsCardInfo_Error.txt")]
+		[string] $ErrorLog = "C:\Scripts\Get-GraphicsCardInfo_Error.txt",
+
+		[Parameter (HelpMessage = "Enable failed computer logging.")]
+		[switch] $LogErrors
+	)
+
+	Begin {}
+
+	process {
+		foreach ($c in $ComputerName) {
+			try {
+				$graphicsCards = (Get-WmiObject -Class win32_VideoController -ComputerName $c -ErrorAction Stop)
+				foreach ($graphicsCard in $graphicsCards) {
+					$props = @{
+						"ComputerName"   = $c;
+						"GraphicsManufacturer"      = $graphicsCard.AdapterCompatibility;
+						"GraphicsCard"        = $graphicsCard.Name
+					}
+					$obj = New-Object -TypeName PSObject -Property $props
+					$obj.psobject.typenames.insert(0, "SmootiTools.GraphicsCardInfo")
+					Write-Output $obj
+				}
+			}
+			Catch {
+				if ($LogErrors) {
+					$c | Out-File $ErrorLog -Append
+				}
+				Write-Warning "$($c) has encountered an error."
+			}
+		}
+	}
+
+	End {}
+}
+
+function Get-PhysicalMemoryInfo {
+	<#
+        .Synopsis
+            Retrieves operating system information.
+        .PARAMETER ComputerName
+            DEFAULT: LocalHost
+            Name or IP of computer or computers.
+        .PARAMETER ErrorLog
+            DEFAULT: C:\Scripts\Get-PhysicalMemoryInfo_Error.txt
+            Path to save error log.
+        .PARAMETER LogErrors
+            If specified errors will be logged.
+        .EXAMPLE
+            Get-PhysicalMemoryInfo -ComputerName Computer1
+        .EXAMPLE
+            "Computer1","Computer2" | Get-PhysicalMemoryInfo
+        .EXAMPLE
+            Get-PhysicalMemoryInfo -ComputerName Computer1,Computer2 -LogErrors
+        .EXAMPLE
+            Get-PhysicalMemoryInfo -ComputerName Computer1 -LogErrors -ErrorLog C:\Users\<user>\Documents\Get-PhysicalMemoryInfo_Error.txt
+    #>
+
+	param (
+		[Parameter (
+			ValueFromPipeline = $True,
+			ValueFromPipelineByPropertyName = $True,
+			HelpMessage = "ComputerName or IP address.")]
+		[Alias("Hostname")]
+		[ValidateCount(0, 5)]
+		[string[]] $ComputerName = $env:COMPUTERNAME,
+
+		[Parameter (HelpMessage = "Default is C:\Scripts\Get-PhysicalMemoryInfo_Error.txt")]
+		[string] $ErrorLog = "C:\Scripts\Get-PhysicalMemoryInfo_Error.txt",
+
+		[Parameter (HelpMessage = "Enable failed computer logging.")]
+		[switch] $LogErrors
+	)
+
+	Begin {}
+
+	process {
+		foreach ($c in $ComputerName) {
+			try {
+				$physicalMemorys = (Get-WmiObject win32_physicalmemory -ComputerName $c -ErrorAction Stop)
+				foreach ($physicalMemory in $physicalMemorys) {
+					$props = @{
+						"ComputerName"   = $c;
+						"PhysicalMemoryCapacity"   = "$($physicalMemory.Capacity / 1GB -as [int]) GB"
+						"PhysicalMemorySpeed" = $physicalMemory.ConfiguredClockSpeed;
+						"PhysicalMemoryLocation" = $physicalMemory.DeviceLocator
+					}
+					$obj = New-Object -TypeName PSObject -Property $props
+					$obj.psobject.typenames.insert(0, "SmootiTools.PhysicalMemoryInfo")
+					Write-Output $obj
+				}
+			}
+			Catch {
+				if ($LogErrors) {
+					$c | Out-File $ErrorLog -Append
+				}
+				Write-Warning "$($c) has encountered an error."
+			}
+		}
+	}
+
+	End {}
+}
+
 Function Get-InstalledSoftware {
 	<#
         .Synopsis
