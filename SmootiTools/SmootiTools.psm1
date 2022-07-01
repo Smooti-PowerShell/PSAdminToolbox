@@ -144,7 +144,7 @@ function Get-DiskInfo {
 		foreach ($c in $ComputerName) {
 			Try {
 				$disks = (Get-WMIObject -Class win32_LogicalDisk -Filter "DriveType=$($DriveType)" -Computer $c -ErrorAction Stop |
-				Where-Object { $_.FreeSpace / $_.Size * 100 -lt $FreeSpace })
+					Where-Object { $_.FreeSpace / $_.Size * 100 -lt $FreeSpace })
 				foreach ($disk in $disks) {
 					$props = @{
 						"ComputerName" = $c;
@@ -353,13 +353,13 @@ function Get-ProcessorInfo {
 				$processors = (Get-WmiObject -Class Win32_Processor -ComputerName $c -ErrorAction Stop)
 				foreach ($processor in $processors) {
 					$props = @{
-						"ComputerName"   = $c;
-						"ProcessorManufacturer"   = $processor.Manufacturer;
-						"ProcessorName" = $processor.Name;
-						"ProcessorCores"      = $processor.NumberOfCores;
+						"ComputerName"          = $c;
+						"ProcessorManufacturer" = $processor.Manufacturer;
+						"ProcessorName"         = $processor.Name;
+						"ProcessorCores"        = $processor.NumberOfCores;
 						"ProcessorThreads"      = $processor.ThreadCount;
-						"ThreadsPerProcessor" = $processor.ThreadCount / $processor.NumberOfCores;
-						"LogicalProcessors" = $processor.NumberOfLogicalProcessors
+						"ThreadsPerProcessor"   = $processor.ThreadCount / $processor.NumberOfCores;
+						"LogicalProcessors"     = $processor.NumberOfLogicalProcessors
 					}
 
 					$obj = New-Object -TypeName PSObject -Property $props
@@ -425,9 +425,9 @@ function Get-GraphicsCardInfo {
 				$graphicsCards = (Get-WmiObject -Class win32_VideoController -ComputerName $c -ErrorAction Stop)
 				foreach ($graphicsCard in $graphicsCards) {
 					$props = @{
-						"ComputerName"   = $c;
-						"GraphicsCardAdapter"      = $graphicsCard.AdapterCompatibility;
-						"GraphicsCardName"        = $graphicsCard.Name
+						"ComputerName"        = $c;
+						"GraphicsCardAdapter" = $graphicsCard.AdapterCompatibility;
+						"GraphicsCardName"    = $graphicsCard.Name
 					}
 					$obj = New-Object -TypeName PSObject -Property $props
 					$obj.psobject.typenames.insert(0, "SmootiTools.GraphicsCardInfo")
@@ -495,9 +495,9 @@ function Get-PhysicalMemoryInfo {
 					# TODO: Counter is setup to count number of RAM slots currently being utilized
 					$i = $i + 1
 					$props = @{
-						"ComputerName"   = $c;
-						"PhysicalMemoryCapacity"   = "$($physicalMemory.Capacity / 1GB -as [int]) GB"
-						"PhysicalMemorySpeed" = $physicalMemory.ConfiguredClockSpeed;
+						"ComputerName"           = $c;
+						"PhysicalMemoryCapacity" = "$($physicalMemory.Capacity / 1GB -as [int]) GB"
+						"PhysicalMemorySpeed"    = $physicalMemory.ConfiguredClockSpeed;
 						"PhysicalMemoryLocation" = $physicalMemory.DeviceLocator
 					}
 					$obj = New-Object -TypeName PSObject -Property $props
