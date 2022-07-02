@@ -3,13 +3,13 @@ Function Get-OSInfo {
         .Synopsis
             Retrieves operating system information.
         .PARAMETER ComputerName
-            DEFAULT: LocalHost
-            Name or IP of computer or computers.
+            Optional. Name or IP of computer or computers.
+			DEFAULT: LocalHost
         .PARAMETER ErrorLog
-            DEFAULT: C:\Scripts\Get-OSInfo_Error.txt
-            Path to save error log.
+            Optional. Path to save error log.
+			DEFAULT: C:\Scripts\Get-OSInfo_Error.txt
         .PARAMETER LogErrors
-            If specified errors will be logged.
+            Optional. If specified errors will be logged.
         .EXAMPLE
             Get-OSInfo -ComputerName Computer1
         .EXAMPLE
@@ -21,10 +21,7 @@ Function Get-OSInfo {
     #>
 
 	param (
-		[Parameter (
-			ValueFromPipeline = $True,
-			ValueFromPipelineByPropertyName = $True,
-			HelpMessage = "ComputerName or IP address.")]
+		[Parameter (ValueFromPipeline = $True, ValueFromPipelineByPropertyName = $True,	HelpMessage = "ComputerName or IP address.")]
 		[Alias("Hostname")]
 		[ValidateCount(0, 5)]
 		[string[]] $ComputerName = $env:COMPUTERNAME,
@@ -87,19 +84,19 @@ function Get-DiskInfo {
             Compact Disc (5)
             RAM Disk (6)
         .PARAMETER ComputerName
-            DEFAULT: LocalHost
-            Name or IP of computer or computers.
+            Optional. Name or IP of computer or computers.
+			DEFAULT: LocalHost
         .PARAMETER DriveType
-            DEFAULT: 3
-            Specifies which drivetype to look for.
+            Optional. Specifies which drivetype to look for.
+			DEFAULT: 3
         .PARAMETER FreeSpace
-            DEFAULT: 99
-            Specifies the maximum amount of free disk space to look for.
+            Optional. Specifies the maximum amount of free disk space to look for.
+			DEFAULT: 99
         .PARAMETER ErrorLog
-            DEFAULT: C:\Scripts\Get-OSInfo_Error.txt
-            Path to save error log.
+            Optional. Path to save error log.
+			DEFAULT: C:\Scripts\Get-OSInfo_Error.txt
         .PARAMETER LogErrors
-            If specified errors will be logged.
+            Optional. If specified errors will be logged.
         .EXAMPLE
             Get-DiskInfo -ComputerName Computer1
         .EXAMPLE
@@ -113,28 +110,21 @@ function Get-DiskInfo {
     #>
 
 	param (
-		[Parameter (
-			ValueFromPipeline = $True,
-			ValueFromPipelineByPropertyName = $True,
-			HelpMessage = "ComputerName or IP address.")]
+		[Parameter (ValueFromPipeline = $True, ValueFromPipelineByPropertyName = $True,	HelpMessage = "ComputerName or IP address.")]
 		[Alias("Hostname")]
 		[ValidateCount(0, 5)]
 		[string[]] $ComputerName = $env:ComputerName,
 
-		[Parameter (
-			HelpMessage = "Numeric Hard Drive Type.")]
+		[Parameter (HelpMessage = "Numeric Hard Drive Type.")]
 		[int] $DriveType = 3,
 
-		[Parameter (
-			HelpMessage = "Percent free space threshold.")]
+		[Parameter (HelpMessage = "Percent free space threshold.")]
 		[int] $FreeSpace = 99,
 
-		[Parameter (
-			HelpMessage = "Default is C:\Scripts\Get-DiskInfo_Error.txt")]
+		[Parameter (HelpMessage = "Default is C:\Scripts\Get-DiskInfo_Error.txt")]
 		[string] $ErrorLog = "C:\Scripts\Get-DiskInfo_Error.txt",
 
-		[Parameter (
-			HelpMessage = "Enable Failed computer logging.")]
+		[Parameter (HelpMessage = "Enable Failed computer logging.")]
 		[Switch] $LogErrors
 	)
 
@@ -182,43 +172,32 @@ function Invoke-OSSHutdown {
         2 - Restart (6 for forced restart)
         8 - Power Off (12 for forced power off)
     .PARAMETER ComputerName
-        The name or IP address of one or more computers.
+        Mandatory. The name or IP address of one or more computers.
     .PARAMETER Action
-        The action to take, as defined by Win32_OperatingSystem class Win32Shutdown() method.
+        Mandatory. The action to take, as defined by Win32_OperatingSystem class Win32Shutdown() method.
     .PARAMETER LogErrors
-        Log failed computer names to a text file.
+        Optional. Log failed computer names to a text file.
     .PARAMETER ErrorLog
-        The file name to log computer names to - defaults to c:\errors.txt.
+        Optional. The file name to log computer names to - defaults to c:\errors.txt.
     #>
 
-	[CmdletBinding (
-		SupportsShouldProcess = $True,
-		ConfirmImpact = "High")]
+	[CmdletBinding (SupportsShouldProcess = $True, ConfirmImpact = "High")]
 	param (
-		[Parameter(
-			ValueFromPipeline = $True,
-			ValueFromPipelineByPropertyName = $True,
-			Mandatory = $True,
-			HelpMessage = "Computer name or IP address.")]
+		[Parameter(ValueFromPipeline = $True, ValueFromPipelineByPropertyName = $True, Mandatory = $True, HelpMessage = "Computer name or IP address.")]
 		[ValidateCount(0, 5)]
 		[string[]] $ComputerName,
 
-		[Parameter (
-			Mandatory = $True,
-			HelpMessage = "Action to take.")]
+		[Parameter (Mandatory = $True, HelpMessage = "Action to take.")]
 		[ValidateSet("LogOff", "ShutDown", "Restart", "PowerOff")]
 		[string] $Action,
 
-		[Parameter (
-			HelpMessage = "Forces action.")]
+		[Parameter (HelpMessage = "Forces action.")]
 		[switch] $Force,
 
-		[Parameter (
-			HelpMessage = "Default is C:\Scripts\Invoke_OSShutdown_Error.txt")]
+		[Parameter (HelpMessage = "Default is C:\Scripts\Invoke_OSShutdown_Error.txt")]
 		[string] $ErrorLog = "C:\Scripts\Invoke_OSShutdown_Error.txt",
 
-		[Parameter (
-			HelpMessage = "Log failed computers.")]
+		[Parameter (HelpMessage = "Log failed computers.")]
 		[Switch] $LogErrors
 	)
 
@@ -259,17 +238,19 @@ function Get-ComputerVolumeInfo {
         .SYNOPSIS
             Retrieves extended computer system information.
         .PARAMETER ComputerName
-            The name or IP address of one or more computers.
+            Optional. The name or IP address of one or more computers.
         .PARAMETER LogErrors
-            Log failed computer names to a text file.
+            Optional. Log failed computer names to a text file.
         .PARAMETER ErrorLog
-            The file name to log computer names to - defaults to c:\errors.txt.
+            Optional. The file name to log computer names to - defaults to c:\errors.txt.
     #>
 
 	param (
 		[Parameter(ValueFromPipeline = $True, ValueFromPipelineByPropertyName = $True)]
 		[string[]] $ComputerName = $env:ComputerName,
+
 		[string] $ErrorLog = "C:\\Scripts\Get-ComputerInfo_Error.txt",
+
 		[switch] $LogErrors
 	)
 
@@ -312,13 +293,13 @@ function Get-ProcessorInfo {
         .Synopsis
             Retrieves processor information.
         .PARAMETER ComputerName
-            DEFAULT: LocalHost
-            Name or IP of computer or computers.
+            Optional. Name or IP of computer or computers.
+			DEFAULT: LocalHost
         .PARAMETER ErrorLog
-            DEFAULT: C:\Scripts\Get-ProcessorInfo_Error.txt
-            Path to save error log.
+            Optional. Path to save error log.
+			DEFAULT: C:\Scripts\Get-ProcessorInfo_Error.txt
         .PARAMETER LogErrors
-            If specified errors will be logged.
+            Optional. If specified errors will be logged.
         .EXAMPLE
             Get-ProcessorInfo -ComputerName Computer1
         .EXAMPLE
@@ -330,10 +311,7 @@ function Get-ProcessorInfo {
     #>
 
 	param (
-		[Parameter (
-			ValueFromPipeline = $True,
-			ValueFromPipelineByPropertyName = $True,
-			HelpMessage = "ComputerName or IP address.")]
+		[Parameter (ValueFromPipeline = $True, ValueFromPipelineByPropertyName = $True, HelpMessage = "ComputerName or IP address.")]
 		[Alias("Hostname")]
 		[ValidateCount(0, 5)]
 		[string[]] $ComputerName = $env:COMPUTERNAME,
@@ -384,13 +362,13 @@ function Get-GraphicsCardInfo {
         .Synopsis
             Retrieves graphics card information.
         .PARAMETER ComputerName
-            DEFAULT: LocalHost
-            Name or IP of computer or computers.
+            Optional. Name or IP of computer or computers.
+			DEFAULT: LocalHost
         .PARAMETER ErrorLog
-            DEFAULT: C:\Scripts\Get-GraphicsCardInfo_Error.txt
-            Path to save error log.
+            Optional. Path to save error log.
+			DEFAULT: C:\Scripts\Get-GraphicsCardInfo_Error.txt
         .PARAMETER LogErrors
-            If specified errors will be logged.
+            Optional. If specified errors will be logged.
         .EXAMPLE
             Get-GraphicsCardInfo -ComputerName Computer1
         .EXAMPLE
@@ -402,10 +380,7 @@ function Get-GraphicsCardInfo {
     #>
 
 	param (
-		[Parameter (
-			ValueFromPipeline = $True,
-			ValueFromPipelineByPropertyName = $True,
-			HelpMessage = "ComputerName or IP address.")]
+		[Parameter (ValueFromPipeline = $True, ValueFromPipelineByPropertyName = $True, HelpMessage = "ComputerName or IP address.")]
 		[Alias("Hostname")]
 		[ValidateCount(0, 5)]
 		[string[]] $ComputerName = $env:COMPUTERNAME,
@@ -452,13 +427,13 @@ function Get-PhysicalMemoryInfo {
         .Synopsis
             Retrieves physical memory information.
         .PARAMETER ComputerName
-            DEFAULT: LocalHost
-            Name or IP of computer or computers.
+            Optional. Name or IP of computer or computers.
+			DEFAULT: LocalHost
         .PARAMETER ErrorLog
-            DEFAULT: C:\Scripts\Get-PhysicalMemoryInfo_Error.txt
-            Path to save error log.
+            Optional. Path to save error log.
+			DEFAULT: C:\Scripts\Get-PhysicalMemoryInfo_Error.txt
         .PARAMETER LogErrors
-            If specified errors will be logged.
+            Optional. If specified errors will be logged.
         .EXAMPLE
             Get-PhysicalMemoryInfo -ComputerName Computer1
         .EXAMPLE
@@ -470,10 +445,7 @@ function Get-PhysicalMemoryInfo {
     #>
 
 	param (
-		[Parameter (
-			ValueFromPipeline = $True,
-			ValueFromPipelineByPropertyName = $True,
-			HelpMessage = "ComputerName or IP address.")]
+		[Parameter (ValueFromPipeline = $True, ValueFromPipelineByPropertyName = $True, HelpMessage = "ComputerName or IP address.")]
 		[Alias("Hostname")]
 		[ValidateCount(0, 5)]
 		[string[]] $ComputerName = $env:COMPUTERNAME,
@@ -669,15 +641,13 @@ function Get-UserSession {
 			.Synopsis
 				Gets user sessions from remote computer.
 			.PARAMETER ComputerName
-				Name or IP of computer.
+				Mandatory. Name or IP of computer.
 			.EXAMPLE
 				Get-UserSession -ComputerName Computer1
 		#>
 
 	param (
-		[Parameter (
-			Mandatory = $true
-		)]
+		[Parameter (Mandatory = $true)]
 		[string] $ComputerName
 	)
 
@@ -700,11 +670,11 @@ function Enter-RDPSession {
 			.Synopsis
 				Initiates an rdp session.
 			.PARAMETER ComputerName
-				Name or IP of computer.
+				Mandatory. Name or IP of computer.
 			.PARAMETER ID
-				Session ID of user you wish to shadow.
+				Optional. Session ID of user you wish to shadow.
 			.PARAMETER Control
-				If specified session will be able to be controlled.
+				Optional. If specified session will be able to be controlled.
 			.EXAMPLE
 				Start-RDPSession -ComputerName Computer1
 			.EXAMPLE
@@ -714,14 +684,10 @@ function Enter-RDPSession {
 		#>
 
 	Param (
-		[Parameter (
-			Mandatory = $true
-		)]
+		[Parameter (Mandatory = $true)]
 		[string] $ComputerName,
 
-		[Parameter (
-			Mandatory = $false
-		)]
+		[Parameter (Mandatory = $false)]
 		[int] $ID = $null,
 
 		[switch] $Control
