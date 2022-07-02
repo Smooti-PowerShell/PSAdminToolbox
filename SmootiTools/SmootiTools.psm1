@@ -7,7 +7,7 @@ Function Get-OSInfo {
 			DEFAULT: LocalHost
         .PARAMETER ErrorLog
             Optional. Path to save error log.
-			DEFAULT: C:\Scripts\Get-OSInfo_Error.txt
+			DEFAULT: $($PSScriptRoot)\Get-OSInfo_Error.txt
         .PARAMETER LogErrors
             Optional. If specified errors will be logged.
         .EXAMPLE
@@ -26,8 +26,8 @@ Function Get-OSInfo {
 		[ValidateCount(0, 5)]
 		[string[]] $ComputerName = $env:COMPUTERNAME,
 
-		[Parameter (HelpMessage = "Default is C:\Scripts\Get-OSInfo_Error.txt")]
-		[string] $ErrorLog = "C:\Scripts\Get-OSInfo_Error.txt",
+		[Parameter (HelpMessage = "Default is current directory")]
+		[string] $ErrorLog = "$($PSScriptRoot)\Get-OSInfo_Error.txt",
 
 		[Parameter (HelpMessage = "Enable failed computer logging.")]
 		[switch] $LogErrors
@@ -94,7 +94,7 @@ function Get-DiskInfo {
 			DEFAULT: 99
         .PARAMETER ErrorLog
             Optional. Path to save error log.
-			DEFAULT: C:\Scripts\Get-OSInfo_Error.txt
+			DEFAULT: $($PSScriptRoot)\Get-OSInfo_Error.txt
         .PARAMETER LogErrors
             Optional. If specified errors will be logged.
         .EXAMPLE
@@ -121,8 +121,8 @@ function Get-DiskInfo {
 		[Parameter (HelpMessage = "Percent free space threshold.")]
 		[int] $FreeSpace = 99,
 
-		[Parameter (HelpMessage = "Default is C:\Scripts\Get-DiskInfo_Error.txt")]
-		[string] $ErrorLog = "C:\Scripts\Get-DiskInfo_Error.txt",
+		[Parameter (HelpMessage = "Default is current directory")]
+		[string] $ErrorLog = "$($PSScriptRoot)\Get-DiskInfo_Error.txt",
 
 		[Parameter (HelpMessage = "Enable Failed computer logging.")]
 		[Switch] $LogErrors
@@ -194,8 +194,8 @@ function Invoke-OSSHutdown {
 		[Parameter (HelpMessage = "Forces action.")]
 		[switch] $Force,
 
-		[Parameter (HelpMessage = "Default is C:\Scripts\Invoke_OSShutdown_Error.txt")]
-		[string] $ErrorLog = "C:\Scripts\Invoke_OSShutdown_Error.txt",
+		[Parameter (HelpMessage = "Default is current directory")]
+		[string] $ErrorLog = "$($PSScriptRoot)\Invoke_OSShutdown_Error.txt",
 
 		[Parameter (HelpMessage = "Log failed computers.")]
 		[Switch] $LogErrors
@@ -297,7 +297,7 @@ function Get-ProcessorInfo {
 			DEFAULT: LocalHost
         .PARAMETER ErrorLog
             Optional. Path to save error log.
-			DEFAULT: C:\Scripts\Get-ProcessorInfo_Error.txt
+			DEFAULT: $($PSScriptRoot)\Get-ProcessorInfo_Error.txt
         .PARAMETER LogErrors
             Optional. If specified errors will be logged.
         .EXAMPLE
@@ -316,8 +316,8 @@ function Get-ProcessorInfo {
 		[ValidateCount(0, 5)]
 		[string[]] $ComputerName = $env:COMPUTERNAME,
 
-		[Parameter (HelpMessage = "Default is C:\Scripts\Get-ProcessorInfo_Error.txt")]
-		[string] $ErrorLog = "C:\Scripts\Get-ProcessorInfo_Error.txt",
+		[Parameter (HelpMessage = "Default is current directory")]
+		[string] $ErrorLog = "$($PSScriptRoot)\Get-ProcessorInfo_Error.txt",
 
 		[Parameter (HelpMessage = "Enable failed computer logging.")]
 		[switch] $LogErrors
@@ -366,7 +366,7 @@ function Get-GraphicsCardInfo {
 			DEFAULT: LocalHost
         .PARAMETER ErrorLog
             Optional. Path to save error log.
-			DEFAULT: C:\Scripts\Get-GraphicsCardInfo_Error.txt
+			DEFAULT: $($PSScriptRoot)\Get-GraphicsCardInfo_Error.txt
         .PARAMETER LogErrors
             Optional. If specified errors will be logged.
         .EXAMPLE
@@ -385,8 +385,8 @@ function Get-GraphicsCardInfo {
 		[ValidateCount(0, 5)]
 		[string[]] $ComputerName = $env:COMPUTERNAME,
 
-		[Parameter (HelpMessage = "Default is C:\Scripts\Get-GraphicsCardInfo_Error.txt")]
-		[string] $ErrorLog = "C:\Scripts\Get-GraphicsCardInfo_Error.txt",
+		[Parameter (HelpMessage = "Default is current directory")]
+		[string] $ErrorLog = "$($PSScriptRoot)\Get-GraphicsCardInfo_Error.txt",
 
 		[Parameter (HelpMessage = "Enable failed computer logging.")]
 		[switch] $LogErrors
@@ -431,7 +431,7 @@ function Get-PhysicalMemoryInfo {
 			DEFAULT: LocalHost
         .PARAMETER ErrorLog
             Optional. Path to save error log.
-			DEFAULT: C:\Scripts\Get-PhysicalMemoryInfo_Error.txt
+			DEFAULT: $($PSScriptRoot)\Get-PhysicalMemoryInfo_Error.txt
         .PARAMETER LogErrors
             Optional. If specified errors will be logged.
         .EXAMPLE
@@ -450,8 +450,8 @@ function Get-PhysicalMemoryInfo {
 		[ValidateCount(0, 5)]
 		[string[]] $ComputerName = $env:COMPUTERNAME,
 
-		[Parameter (HelpMessage = "Default is C:\Scripts\Get-PhysicalMemoryInfo_Error.txt")]
-		[string] $ErrorLog = "C:\Scripts\Get-PhysicalMemoryInfo_Error.txt",
+		[Parameter (HelpMessage = "Default is current directory")]
+		[string] $ErrorLog = "$($PSScriptRoot)\Get-PhysicalMemoryInfo_Error.txt",
 
 		[Parameter (HelpMessage = "Enable failed computer logging.")]
 		[switch] $LogErrors
