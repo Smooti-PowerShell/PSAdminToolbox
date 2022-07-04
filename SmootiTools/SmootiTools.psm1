@@ -400,10 +400,11 @@ function Get-GraphicsCardInfo {
 				$graphicsCards = (Get-WmiObject -Class win32_VideoController -ComputerName $c -ErrorAction Stop)
 				foreach ($graphicsCard in $graphicsCards) {
 					$props = @{
-						"ComputerName" = $c;
-						"Manufacturer" = $graphicsCard.AdapterCompatibility;
-						"Name"         = $graphicsCard.Name;
-						"VRAM"         =	"$($graphicsCard.AdapterRAM / 1GB -as [int])GB"	# ! This WMI query returns an inaccurate value
+						"ComputerName"  = $c;
+						"Manufacturer"  = $graphicsCard.AdapterCompatibility;
+						"Name"          = $graphicsCard.Name;
+						"VRAM"          = "$($graphicsCard.AdapterRAM / 1GB -as [int])GB";	# ! This WMI query returns an inaccurate value
+						"DriverVersion" = $graphicsCard.DriverVersion
 					}
 					$obj = New-Object -TypeName PSObject -Property $props
 					$obj.psobject.typenames.insert(0, "SmootiTools.GraphicsCardInfo")

@@ -169,6 +169,9 @@
 							<ListItem>
 								<PropertyName>VRAM</PropertyName>
 							</ListItem>
+							<ListItem>
+								<PropertyName>DriverVersion</PropertyName>
+							</ListItem>
 						</ListItems>
 					</ListEntry>
 				</ListEntries>
