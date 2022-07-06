@@ -118,34 +118,34 @@
 ## Usage
 
 `Get-OSInfo`
-- Description
+- Retrieves operating system information.
 - <InsertDemoClip>
 `Get-DiskInfo`
-- Description
+- Retrieves hard disk information.
 - <InsertDemoClip>
 `Invoke-OSSHutdown`
-- Description
+- Offers a variety of ways to shut down one or more computers.
 - <InsertDemoClip>
 `Get-ComputerVolumeInfo`
-- Description
+- Retrieves extended computer system information.
 - <InsertDemoClip>
 `Get-ProcessorInfo`
-- Description
+- Retrieves processor information.
 - <InsertDemoClip>
 `Get-GraphicsCardInfo`
-- Description
+- Retrieves graphics card information.
 - <InsertDemoClip>
 `Get-PhysicalMemoryInfo`
-- Description
+- Retrieves physical memory information.
 - <InsertDemoClip>
 `Get-InstalledSoftware`
-- Description
+- Gets installed software on system.
 - <InsertDemoClip>
 `Get-UserSession`
-- Description
+- Gets user sessions from remote computer.
 - <InsertDemoClip>
 `Enter-RDPSession`
-- Description
+- Initiates an rdp session.
 - <InsertDemoClip>
 
 _For more examples and a list of options, please precede `Get-Help` before calling the cmdlet_
