@@ -480,8 +480,6 @@ function Get-PhysicalMemoryInfo {
 					$obj.psobject.typenames.insert(0, "SmootiTools.PhysicalMemoryInfo")
 					Write-Output $obj
 				}
-
-				Write-Host "Total Memory: $($totalPhysicalMemory)"
 			}
 			Catch {
 				if ($LogErrors) {
