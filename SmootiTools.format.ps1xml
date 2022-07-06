@@ -2,7 +2,7 @@
 <Configuration>
 	<ViewDefinitions>
 
-		<View>
+		<!-- <View>
 			<Name>SmootiTools.OSInfo</Name>
 			<ViewSelectedBy>
 				<TypeName>SmootiTools.OSInfo</TypeName>
@@ -80,6 +80,48 @@
 					</TableRowEntry>
 				</TableRowEntries>
 			</TableControl>
+		</View> -->
+
+		<View>
+			<Name>SmootiTools.OSInfo</Name>
+			<ViewSelectedBy>
+				<TypeName>SmootiTools.OSInfo</TypeName>
+			</ViewSelectedBy>
+			<ListControl>
+				<ListEntries>
+					<ListEntry>
+						<ListItems>
+							<ListItem>
+								<PropertyName>ComputerName</PropertyName>
+							</ListItem>
+							<ListItem>
+								<PropertyName>Model</PropertyName>
+							</ListItem>
+							<ListItem>
+								<PropertyName>Manufacturer</PropertyName>
+							</ListItem>
+							<ListItem>
+								<PropertyName>DisplayVersion</PropertyName>
+							</ListItem>
+							<ListItem>
+								<PropertyName>OSBuild</PropertyName>
+							</ListItem>
+							<ListItem>
+								<PropertyName>OSVersion</PropertyName>
+							</ListItem>
+							<ListItem>
+								<PropertyName>SPVersion</PropertyName>
+							</ListItem>
+							<ListItem>
+								<PropertyName>OSArchitecture</PropertyName>
+							</ListItem>
+							<ListItem>
+								<PropertyName>SerialNumber</PropertyName>
+							</ListItem>
+						</ListItems>
+					</ListEntry>
+				</ListEntries>
+			</ListControl>
 		</View>
 
 		<View>
