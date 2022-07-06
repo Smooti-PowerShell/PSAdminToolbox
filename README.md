@@ -126,17 +126,17 @@ _Below is an example of how you can instruct your audience on installing and set
    ```sh
    git clone https://github.com/Smooti-PowerShell/SmootiTools.git
    ```
-3. Move SmootiTools into PowerShell Module path
-   ```sh
-   npm install
+3. Move `SmootiTools` into your PowerShell Module path
+   ```powershell
+   # If you want the module to be available per user
+   Get-ChildItem SmootiTools -Recurse | Copy-Item -Destination "$($Env:UserProfile)\Documents\powershell"
+
+   # If you want the module to be available for all users
+   Get-ChildItem SmootiTools -Recurse | Copy-Item -Destination "$(env:ProgramFiles)\PowerShell\Modules"
    ```
    <Note>
-	"$Env:UserProfile"\Documents\powershell
 
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
-   ```
+4. Edit your 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -239,7 +239,7 @@ Use this space to list resources you find helpful and would like to give credit 
 [license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
 [license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/othneildrew
+[linkedin-url]: https://www.linkedin.com/in/robertowens01/
 [product-screenshot]: images/screenshot.png
 [Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
 [Next-url]: https://nextjs.org/
