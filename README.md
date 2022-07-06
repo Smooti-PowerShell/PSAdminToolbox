@@ -162,6 +162,7 @@ Get-Help Get-OSInfo
 ## Roadmap
 
 -   [X] Contemplate Life
+-   [ ] Get Out of Depression
 -   [ ] Add Additional CMDLets (Whatever is useful)
 
 See the [open issues](https://github.com/Smooti-PowerShell/SmootiTools/issues) for a full list of proposed features (and known issues).
