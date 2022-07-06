@@ -496,7 +496,7 @@ function Get-PhysicalMemoryInfo {
 Function Get-InstalledSoftware {
 	<#
         .Synopsis
-            Gets installed software on system and lists multiple property attributes.
+            Gets installed software on system.
         .EXAMPLE
             Get-InstalledSoftware
     #>
