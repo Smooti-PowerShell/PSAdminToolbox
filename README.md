@@ -201,7 +201,7 @@ Distributed under the GNU GPL-3.0 license. See `LICENSE` for more information.
 
 ## Contact
 
-Robert Owens - kobeowens43099@gmail.com
+Robert Owens - smootiDev@gmail.com
 
 Project Link: [https://github.com/Smooti-PowerShell/SmootiTools](https://github.com/Smooti-PowerShell/SmootiTools)
 
