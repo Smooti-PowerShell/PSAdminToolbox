@@ -465,9 +465,8 @@ function Get-PhysicalMemoryInfo {
 			try {
 				$i = 0
 				$physicalMemorys = (Get-WmiObject win32_physicalmemory -ComputerName $c -ErrorAction Stop)
+				$totalPhysicalMemory = 0
 				foreach ($physicalMemory in $physicalMemorys) {
-					# TODO: Counter is setup to count number of RAM slots currently being utilized
-					$i = $i + 1
 					$props = @{
 						"ComputerName" = $c;
 						"Manufacturer" = $physicalMemory.Manufacturer;
@@ -476,10 +475,13 @@ function Get-PhysicalMemoryInfo {
 						"Location"     = $physicalMemory.DeviceLocator;
 						"SerialNumber" = $physicalMemory.Serialnumber
 					}
+					$totalPhysicalMemory = $totalPhysicalMemory + ($physicalMemory.Capacity / 1GB -as [int])
 					$obj = New-Object -TypeName PSObject -Property $props
 					$obj.psobject.typenames.insert(0, "SmootiTools.PhysicalMemoryInfo")
 					Write-Output $obj
 				}
+
+				Write-Host "Total Memory: $($totalPhysicalMemory)"
 			}
 			Catch {
 				if ($LogErrors) {
