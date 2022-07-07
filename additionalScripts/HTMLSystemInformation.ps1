@@ -9,13 +9,20 @@ Param (
 
 $css = @"
 <style>
-body {
- font-family:Tahoma;
- font-size:12px;
-}
-th {
- font-weight:bold;
-}
+    body
+  {
+      background-color: Gainsboro;
+  }
+
+    table, th, td{
+      border: 1px solid;
+    }
+
+    h1{
+        background-color:Tomato;
+        color:white;
+        text-align: center;
+    }
 </style>
 "@
 
