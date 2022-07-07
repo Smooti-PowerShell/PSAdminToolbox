@@ -3,7 +3,7 @@
 [CmdletBinding()]
 Param (
 	[ValidateCount(0, 5)]
-	[string[]] $ComputerName,
+	[string[]] $ComputerName = $Env:ComputerName,
 	[string] $Path = "C:\Scripts"
 )
 
