@@ -118,6 +118,7 @@
 
 `Get-OSInfo`
 - Retrieves operating system information.
+
 https://user-images.githubusercontent.com/66232763/177876285-0f9915e4-c9d9-4b88-ad59-9daf6e503b98.mp4
 
 `Get-DiskInfo`
