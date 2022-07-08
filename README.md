@@ -119,29 +119,41 @@
 `Get-OSInfo`
 - Retrieves operating system information.
 
-![Get-OSInfo-short](https://user-images.githubusercontent.com/66232763/177877936-5cf93457-e2f0-47e4-84ec-28d1a15c436a.gif)
+![Get-OSInfo-Short](https://user-images.githubusercontent.com/66232763/177979306-a6cd8b0d-ec45-4ccc-9327-573575d3352f.gif)
 
 `Get-DiskInfo`
 - Retrieves hard disk information.
-- <InsertDemoClip>
+
+![Get-DiskInfo-Short](https://user-images.githubusercontent.com/66232763/177979346-fad26636-e6c5-4dd0-961a-536000ee03e3.gif)
+
 `Invoke-OSSHutdown`
 - Offers a variety of ways to shut down one or more computers.
 - <InsertDemoClip>
 `Get-ComputerVolumeInfo`
 - Retrieves extended computer system information.
-- <InsertDemoClip>
+
+![Get-ComputerVolumeInfo-Short](https://user-images.githubusercontent.com/66232763/177979398-bed68eac-f104-470c-af49-f318f8df92d1.gif)
+
 `Get-ProcessorInfo`
 - Retrieves processor information.
-- <InsertDemoClip>
+
+![Get-ProcessorInfo-Short](https://user-images.githubusercontent.com/66232763/177979453-bcaac4f4-21d6-4a9c-a0e5-bf33211eba9f.gif)
+
 `Get-GraphicsCardInfo`
 - Retrieves graphics card information.
-- <InsertDemoClip>
+
+![Get-GraphicsCardInfo-Short](https://user-images.githubusercontent.com/66232763/177979477-21c76b8c-1ebe-4a93-b5e0-4a837c008ed5.gif)
+
 `Get-PhysicalMemoryInfo`
 - Retrieves physical memory information.
-- <InsertDemoClip>
+
+![Get-PhysicalMemoryInfo-Short](https://user-images.githubusercontent.com/66232763/177979500-df336741-858d-4349-8a7e-d8cc0f8fd028.gif)
+
 `Get-InstalledSoftware`
 - Gets installed software on system.
-- <InsertDemoClip>
+
+![Get-InstalledSoftware-Short](https://user-images.githubusercontent.com/66232763/177979527-1a888597-ea3b-44be-beb5-2b52ca7196c3.gif)
+
 `Get-UserSession`
 - Gets user sessions from remote computer.
 - <InsertDemoClip>
