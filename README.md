@@ -208,14 +208,6 @@ Distributed under the GNU GPL-3.0 license. See `LICENSE` for more information.
 
 <!-- CONTACT -->
 
-## Contact
-
-Robert Owens - smootiDev@gmail.com
-
-Project Link: [https://github.com/Smooti-PowerShell/SmootiTools](https://github.com/Smooti-PowerShell/SmootiTools)
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
