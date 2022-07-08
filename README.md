@@ -161,7 +161,7 @@
 - Initiates an rdp session.
 - <InsertDemoClip>
 
-_For more examples and a list of options, please precede `Get-Help` before calling the cmdlet_
+_For more examples and a list of options, please precede the cmdlet with `Get-Help`_
 
 Example.
 
