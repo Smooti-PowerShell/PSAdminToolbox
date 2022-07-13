@@ -112,10 +112,10 @@
 
     ```powershell
     # If you want the module to be available per user
-    Get-ChildItem SmootiTools -Recurse | Copy-Item -Destination "$($Env:UserProfile)\Documents\powershell"
+    Get-ChildItem SmootiTools -Recurse | Copy-Item -Destination "$($Env:UserProfile)\Documents\WindowsPowershell\Modules\SmootiTools"
 
     # If you want the module to be available for all users
-    Get-ChildItem SmootiTools -Recurse | Copy-Item -Destination "$($env:ProgramFiles)\PowerShell\Modules"
+    Get-ChildItem SmootiTools -Recurse | Copy-Item -Destination "$($env:ProgramFiles)\WindowsPowershell\Modules\SmootiTools"
     ```
 
 3. Edit your personal `Microsoft.PowerShell_profile.ps1` located at `"$($Env:UserProfile)\Documents\powershell"`, add the following lines, and save.
