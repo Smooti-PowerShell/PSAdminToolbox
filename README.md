@@ -88,7 +88,7 @@
 
 ## Introduction
 
-:construction: **CONSTRUCTION** :construction:
+:construction: **UNDER CONSTRUCTION** :construction:
 
 ### Built With
 
@@ -145,8 +145,10 @@
 `Invoke-OSSHutdown`
 
 -   Offers a variety of ways to shut down one or more computers.
--   <InsertDemoClip>
-    `Get-ComputerVolumeInfo`
+
+:construction: **UNDER CONSTRUCTION** :construction:
+
+`Get-ComputerVolumeInfo`
 -   Retrieves extended computer system information.
 
 ![Get-ComputerVolumeInfo-Short](https://user-images.githubusercontent.com/66232763/177979398-bed68eac-f104-470c-af49-f318f8df92d1.gif)
@@ -178,10 +180,13 @@
 `Get-UserSession`
 
 -   Gets user sessions from remote computer.
--   <InsertDemoClip>
-    `Enter-RDPSession`
+
+:construction: **UNDER CONSTRUCTION** :construction:
+
+`Enter-RDPSession`
 -   Initiates an rdp session.
--   <InsertDemoClip>
+
+:construction: **UNDER CONSTRUCTION** :construction:
 
 _For more examples and a list of options, please precede the cmdlet with `Get-Help`_
 
@@ -202,6 +207,7 @@ Get-Help Get-OSInfo
 -   [ ] Add Additional CMDLets (Whatever is useful)
 
 See the [open issues](https://github.com/Smooti-PowerShell/SmootiTools/issues) for a full list of proposed features (and known issues).
+
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
