@@ -709,3 +709,8 @@ function Enter-RDPSession {
 		Write-Warning "Machine is either not online or unreachable."
 	}
 }
+
+function Get-Manufacturer {
+	$manufacturer = (Get-WmiObject Win32_Computersystem).manufacturer
+	return $manufacturer
+}
