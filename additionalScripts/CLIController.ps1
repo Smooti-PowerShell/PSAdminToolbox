@@ -1,4 +1,4 @@
-#requires -module SmootiTools
+#requires -module PSAdminToolbox
 
 do {
 	Write-Host "     SERVICE MENU      "

@@ -1,5 +1,5 @@
 <!--
-*** Thanks for checking out the SmootiTools. If you have a suggestion
+*** Thanks for checking out the PSAdminToolbox. If you have a suggestion
 *** that would make this better, please fork the repo and create a pull request
 -->
 
@@ -13,39 +13,39 @@
 
 <!-- PROJECT LOGO -->
 <p align="center" style="text-align: center">
-	<a href="https://github.com/Smooti-PowerShell/SmootiTools">
+	<a href="https://github.com/Smooti-PowerShell/PSAdminToolbox">
 		<img src="./images/toolbox.png" width="20%">
 	</a><br />
 </p>
 
 <!-- SHIELDS -->
 <p align="center">
-	SmootiTools is a collection of modules developed by
+	PSAdminToolbox is a collection of modules developed by
 	<a href="https://github.com/smooti/">smooti</a>
 	for ease of administration.<br /><br />
 	<!-- License shield -->
-	<a href="https://github.com/smooti-powershell/SmootiTools/blob/master/LICENSE">
-		<img src="https://img.shields.io/github/license/smooti-powershell/SmootiTools.svg?style=badge">
+	<a href="https://github.com/smooti-powershell/PSAdminToolbox/blob/master/LICENSE">
+		<img src="https://img.shields.io/github/license/smooti-powershell/PSAdminToolbox.svg?style=badge">
 	</a>
 	<!-- Contributors shield -->
-	<a href="https://github.com/smooti-powershell/SmootiTools/graphs/contributors">
-		<img src="https://img.shields.io/github/contributors/smooti-powershell/SmootiTools.svg?style=badge" />
+	<a href="https://github.com/smooti-powershell/PSAdminToolbox/graphs/contributors">
+		<img src="https://img.shields.io/github/contributors/smooti-powershell/PSAdminToolbox.svg?style=badge" />
 	</a>
 	<!-- Forks shield -->
-	<a href="https://github.com/smooti-powershell/SmootiTools/network/members">
-		<img src="https://img.shields.io/github/forks/smooti-powershell/SmootiTools.svg?style=badge" />
+	<a href="https://github.com/smooti-powershell/PSAdminToolbox/network/members">
+		<img src="https://img.shields.io/github/forks/smooti-powershell/PSAdminToolbox.svg?style=badge" />
 	</a>
 	<!-- Stars shield -->
-	<a href="https://github.com/smooti-powershell/SmootiTools/stargazers">
-		<img src="https://img.shields.io/github/stars/smooti-powershell/SmootiTools.svg?style=badge" />
+	<a href="https://github.com/smooti-powershell/PSAdminToolbox/stargazers">
+		<img src="https://img.shields.io/github/stars/smooti-powershell/PSAdminToolbox.svg?style=badge" />
 	</a>
 	<!-- Contributions shield -->
-	<a href="https://github.com/smooti-powershell/SmootiTools/issues">
+	<a href="https://github.com/smooti-powershell/PSAdminToolbox/issues">
 		<img src="https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat" />
 	</a>
 	<!-- Issues Shield -->
-	<a href="https://github.com/smooti-powershell/SmootiTools/issues">
-		<img src="https://img.shields.io/github/issues/smooti-powershell/SmootiTools.svg?style=badge" />
+	<a href="https://github.com/smooti-powershell/PSAdminToolbox/issues">
+		<img src="https://img.shields.io/github/issues/smooti-powershell/PSAdminToolbox.svg?style=badge" />
 	</a>
 	<!-- Linkedin shield -->
 	<a href="https://www.linkedin.com/in/robertowens01/">
@@ -56,9 +56,9 @@
 <span id="nav-1"></span>
 
 <p align="center">
-	<a href="https://github.com/Smooti-PowerShell/SmootiTools/issues">Report Bug</a>
+	<a href="https://github.com/Smooti-PowerShell/PSAdminToolbox/issues">Report Bug</a>
 	·
-	<a href="https://github.com/Smooti-PowerShell/SmootiTools/issues">Request Feature</a>
+	<a href="https://github.com/Smooti-PowerShell/PSAdminToolbox/issues">Request Feature</a>
 </p>
 
 <!-- TABLE OF CONTENTS -->
@@ -106,22 +106,22 @@
 
 1. Clone the repo
     ```sh
-    git clone https://github.com/Smooti-PowerShell/SmootiTools.git
+    git clone https://github.com/Smooti-PowerShell/PSAdminToolbox.git
     ```
-2. Move `SmootiTools` into your PowerShell Module path
+2. Move `PSAdminToolbox` into your PowerShell Module path
 
     ```powershell
     # If you want the module to be available per user
-    Get-ChildItem SmootiTools -Recurse | Copy-Item -Destination "$($Env:UserProfile)\Documents\WindowsPowershell\Modules\SmootiTools"
+    Get-ChildItem PSAdminToolbox -Recurse | Copy-Item -Destination "$($Env:UserProfile)\Documents\WindowsPowershell\Modules\PSAdminToolbox"
 
     # If you want the module to be available for all users
-    Get-ChildItem SmootiTools -Recurse | Copy-Item -Destination "$($env:ProgramFiles)\WindowsPowershell\Modules\SmootiTools"
+    Get-ChildItem PSAdminToolbox -Recurse | Copy-Item -Destination "$($env:ProgramFiles)\WindowsPowershell\Modules\PSAdminToolbox"
     ```
 
 3. Edit your personal `Microsoft.PowerShell_profile.ps1` located at `"$($Env:UserProfile)\Documents\powershell"`, add the following lines, and save.
     ```powershell
     # Import custom modules
-    Import-Module -Name SmootiTools -Force
+    Import-Module -Name PSAdminToolbox -Force
     ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -206,7 +206,7 @@ Get-Help Get-OSInfo
 -   [ ] Get Out of Depression
 -   [ ] Add Additional CMDLets (Whatever is useful)
 
-See the [open issues](https://github.com/Smooti-PowerShell/SmootiTools/issues) for a full list of proposed features (and known issues).
+See the [open issues](https://github.com/Smooti-PowerShell/PSAdminToolbox/issues) for a full list of proposed features (and known issues).
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -230,7 +230,7 @@ Don't forget to give the project a :star:!
 
 ## License
 
-Distributed under the GNU GPL-3.0 license. See [LICENSE](https://github.com/smooti-powershell/SmootiTools/blob/master/LICENSE) for more information.
+Distributed under the GNU GPL-3.0 license. See [LICENSE](https://github.com/smooti-powershell/PSAdminToolbox/blob/master/LICENSE) for more information.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
