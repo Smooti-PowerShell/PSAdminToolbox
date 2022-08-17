@@ -38,9 +38,9 @@ Function Get-OSInfo {
 	process {
 		foreach ($c in $ComputerName) {
 			try {
-				$OS = Get-WMIObject Win32_OperatingSystem -ComputerName $c -ErrorAction Stop
-				$CS = Get-WMIObject Win32_ComputerSystem -ComputerName $c -ErrorAction Stop
-				$BIOS = Get-WMIObject Win32_BIOS -ComputerName $c -ErrorAction Stop
+				$OS = Get-WmiObject Win32_OperatingSystem -ComputerName $c -ErrorAction Stop
+				$CS = Get-WmiObject Win32_ComputerSystem -ComputerName $c -ErrorAction Stop
+				$BIOS = Get-WmiObject Win32_BIOS -ComputerName $c -ErrorAction Stop
 				$displayVersion = Get-ItemPropertyValue "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion" -Name DisplayVersion
 				$props = @{
 					"Computername"   = $c;
@@ -133,7 +133,7 @@ function Get-DiskInfo {
 	Process {
 		foreach ($c in $ComputerName) {
 			Try {
-				$disks = (Get-WMIObject -Class win32_LogicalDisk -Filter "DriveType=$($DriveType)" -Computer $c -ErrorAction Stop |
+				$disks = (Get-WmiObject -Class win32_LogicalDisk -Filter "DriveType=$($DriveType)" -Computer $c -ErrorAction Stop |
 					Where-Object { $_.FreeSpace / $_.Size * 100 -lt $FreeSpace })
 				foreach ($disk in $disks) {
 					$props = @{
@@ -259,10 +259,10 @@ function Get-ComputerVolumeInfo {
 	Process {
 		foreach ($c in $computerName) {
 			Try {
-				$OS = Get-WMIObject Win32_OperatingSystem -ComputerName $c -ErrorAction Stop
-				$disks = Get-WMIObject Win32_LogicalDisk -ComputerName $c -ErrorAction Stop
-				$svcs = Get-WMIObject Win32_Service -ComputerName $c -ErrorAction Stop
-				$procs = Get-WMIObject Win32_Process -ComputerName $c -ErrorAction Stop
+				$OS = Get-WmiObject Win32_OperatingSystem -ComputerName $c -ErrorAction Stop
+				$disks = Get-WmiObject Win32_LogicalDisk -ComputerName $c -ErrorAction Stop
+				$svcs = Get-WmiObject Win32_Service -ComputerName $c -ErrorAction Stop
+				$procs = Get-WmiObject Win32_Process -ComputerName $c -ErrorAction Stop
 				$props = @{
 					"ComputerName" = $c;
 					"OSVerion"     = $OS.Version;
@@ -713,4 +713,10 @@ function Enter-RDPSession {
 function Get-Manufacturer {
 	$manufacturer = (Get-WmiObject Win32_Computersystem).manufacturer
 	return $manufacturer
+}
+
+function Sync-DomainControllers {
+	$domainControllers = (Get-ADDomainController -Filter *).Name
+	$domainName = (Get-ADDomain).DistinguishedName
+	$domainControllers | ForEach-Object { repadmin /syncall $_ $domainName /AdeP }
 }
