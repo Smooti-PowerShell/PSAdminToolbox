@@ -164,21 +164,21 @@ function Get-DiskInfo {
 
 function Invoke-OSSHutdown {
 	<#
-    .SYNOPSIS
-        Offers a variety of ways to shut down one or more computers.
-    .NOTES
-        0 - Log Off (4 for forced log off)
-        1 - Shutdown (5 for forced shutdown)
-        2 - Restart (6 for forced restart)
-        8 - Power Off (12 for forced power off)
-    .PARAMETER ComputerName
-        Mandatory. The name or IP address of one or more computers.
-    .PARAMETER Action
-        Mandatory. The action to take, as defined by Win32_OperatingSystem class Win32Shutdown() method.
-    .PARAMETER LogErrors
-        Optional. Log failed computer names to a text file.
-    .PARAMETER ErrorLog
-        Optional. The file name to log computer names to - defaults to c:\errors.txt.
+		.SYNOPSIS
+			Offers a variety of ways to shut down one or more computers.
+		.NOTES
+			0 - Log Off (4 for forced log off)
+			1 - Shutdown (5 for forced shutdown)
+			2 - Restart (6 for forced restart)
+			8 - Power Off (12 for forced power off)
+		.PARAMETER ComputerName
+			Mandatory. The name or IP address of one or more computers.
+		.PARAMETER Action
+			Mandatory. The action to take, as defined by Win32_OperatingSystem class Win32Shutdown() method.
+		.PARAMETER LogErrors
+			Optional. Log failed computer names to a text file.
+		.PARAMETER ErrorLog
+			Optional. The file name to log computer names to - defaults to c:\errors.txt.
     #>
 
 	[CmdletBinding (SupportsShouldProcess = $True, ConfirmImpact = "High")]
@@ -638,13 +638,13 @@ Function Get-InstalledSoftware {
 
 function Get-UserSession {
 	<#
-			.Synopsis
-				Gets user sessions from remote computer.
-			.PARAMETER ComputerName
-				Mandatory. Name or IP of computer.
-			.EXAMPLE
-				Get-UserSession -ComputerName Computer1
-		#>
+		.Synopsis
+			Gets user sessions from remote computer.
+		.PARAMETER ComputerName
+			Mandatory. Name or IP of computer.
+		.EXAMPLE
+			Get-UserSession -ComputerName Computer1
+	#>
 
 	param (
 		[Parameter (Mandatory = $true)]
@@ -667,21 +667,21 @@ function Get-UserSession {
 
 function Enter-RDPSession {
 	<#
-			.Synopsis
-				Initiates an rdp session.
-			.PARAMETER ComputerName
-				Mandatory. Name or IP of computer.
-			.PARAMETER ID
-				Optional. Session ID of user you wish to shadow.
-			.PARAMETER Control
-				Optional. If specified session will be able to be controlled.
-			.EXAMPLE
-				Enter-RDPSession -ComputerName Computer1
-			.EXAMPLE
-				Enter-RDPSession -ComputerName Computer2 -ID 1
-			.EXAMPLE
-				Enter-RDPSession -ComputerName Computer2 -ID 1 -Control
-		#>
+		.Synopsis
+			Initiates an rdp session.
+		.PARAMETER ComputerName
+			Mandatory. Name or IP of computer.
+		.PARAMETER ID
+			Optional. Session ID of user you wish to shadow.
+		.PARAMETER Control
+			Optional. If specified session will be able to be controlled.
+		.EXAMPLE
+			Enter-RDPSession -ComputerName Computer1
+		.EXAMPLE
+			Enter-RDPSession -ComputerName Computer2 -ID 1
+		.EXAMPLE
+			Enter-RDPSession -ComputerName Computer2 -ID 1 -Control
+	#>
 
 	Param (
 		[Parameter (Mandatory = $true)]
