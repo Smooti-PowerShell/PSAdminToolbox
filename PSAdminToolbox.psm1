@@ -676,11 +676,11 @@ function Enter-RDPSession {
 			.PARAMETER Control
 				Optional. If specified session will be able to be controlled.
 			.EXAMPLE
-				Start-RDPSession -ComputerName Computer1
+				Enter-RDPSession -ComputerName Computer1
 			.EXAMPLE
-				Start-RDPSession -ComputerName Computer2 -ID 1
+				Enter-RDPSession -ComputerName Computer2 -ID 1
 			.EXAMPLE
-				Start-RDPSession -ComputerName Computer2 -ID 1 -Control
+				Enter-RDPSession -ComputerName Computer2 -ID 1 -Control
 		#>
 
 	Param (
