@@ -463,7 +463,6 @@ function Get-PhysicalMemoryInfo {
 	process {
 		foreach ($c in $ComputerName) {
 			try {
-				$i = 0
 				$physicalMemorys = (Get-WmiObject win32_physicalmemory -ComputerName $c -ErrorAction Stop)
 				$totalPhysicalMemory = 0
 				foreach ($physicalMemory in $physicalMemorys) {
