@@ -20,9 +20,8 @@
 
 <!-- SHIELDS -->
 <p align="center">
-	PSAdminToolbox is a collection of modules developed by
-	<a href="https://github.com/smooti/">smooti</a>
-	for ease of administration.<br /><br />
+	PSAdminToolbox is a collection of modules developed for ease of administration.
+	<br /><br />
 	<!-- License shield -->
 	<a href="https://github.com/smooti-powershell/PSAdminToolbox/blob/master/LICENSE">
 		<img src="https://img.shields.io/github/license/smooti-powershell/PSAdminToolbox.svg?style=badge">
