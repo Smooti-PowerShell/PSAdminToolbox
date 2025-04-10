@@ -47,7 +47,7 @@
 		<img src="https://img.shields.io/github/issues/smooti-powershell/PSAdminToolbox.svg?style=badge" />
 	</a>
 	<!-- Linkedin shield -->
-	<a href="https://www.linkedin.com/in/robertowens01/">
+	<a href="https://www.linkedin.com/in/kobeowens/">
 		<img src="https://img.shields.io/badge/-LinkedIn-black.svg?style=badge&logo=linkedin&colorB=555" />
 	</a>
 </p>
